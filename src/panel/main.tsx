@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Indicator  from '@/EmotionOverlay';
+import FractalMemories from '@/components/FractalMemories';
 import '@/styles/globals.css';
 
 // Przykładowe dane do testów
@@ -22,10 +22,22 @@ const testMessages = [
   "😃"
 ];
 
+const MeditationPanel: React.FC = () => {
+  return (
+    <div className="w-full h-screen bg-black flex items-center justify-center">
+      <div className="w-full max-w-4xl p-4">
+        <FractalMemories />
+        <div className="text-center mt-4 text-white/80">
+          <p className="text-lg">Kliknij, aby aktywować tryb medytacyjny</p>
+          <p className="text-sm mt-2">Poruszaj myszką, aby interagować z fraktalami</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <div className="p-4">
-      <Indicator chatData={testMessages} />
-    </div>
+    <MeditationPanel />
   </React.StrictMode>
 ); 
