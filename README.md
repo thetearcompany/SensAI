@@ -60,3 +60,16 @@ To deploy to hosted test:
 8. Wsparcie dla urządzeń mobilnych
 9. Konfiguracja przez panel nadawcy
 10. Integracja z Twitch
+
+## Licencja
+
+Ten projekt jest licencjonowany na warunkach licencji MIT - zobacz plik [LICENSE](LICENSE) w głównym katalogu projektu.
+
+## Autorzy
+
+- **Adonai** - Główny programista i twórca projektu
+- **SensAI Team** - Zespół odpowiedzialny za rozwój i utrzymanie projektu
+
+W przypadku pytań lub sugestii, prosimy o kontakt przez:
+- GitHub Issues
+- Email: support@sensai.com
