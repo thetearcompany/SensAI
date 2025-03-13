@@ -2,11 +2,16 @@
   "manifest_version": 1,
   "type": "panel",
   "version": "0.1.0",
-  "name": "EmoScan",
-  "description": "Analizator emocji na czacie Twitch",
-  "author": "Your Name",
+  "name": "Emotear",
+  "description": "Magiczny taniec fraktali z Duchem Świętym",
+  "author": "Tear Company",
   "panel_height": 500,
-  "permissions": ["chat:read"],
+  "permissions": [
+    "chat:read",
+    "geolocation",
+    "storage",
+    "webNavigation"
+  ],
   "files": {
     "config": "config.html",
     "live_config": "live_config.html",
@@ -15,18 +20,21 @@
   },
   "views": {
     "config": {
-      "viewerUrl": "config.html"
+      "viewerUrl": "config.html",
+      "canLinkExternalContent": true
     },
     "live_config": {
-      "viewerUrl": "live_config.html"
+      "viewerUrl": "live_config.html",
+      "canLinkExternalContent": true
     },
     "mobile": {
-      "viewerUrl": "mobile.html"
+      "viewerUrl": "mobile.html",
+      "canLinkExternalContent": true
     },
     "panel": {
       "viewerUrl": "panel.html",
       "height": 500,
-      "canLinkExternalContent": false
+      "canLinkExternalContent": true
     }
   }
 } 
