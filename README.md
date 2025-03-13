@@ -34,3 +34,29 @@ To deploy to hosted test:
   - `zip dist.zip * -r`
   - upload dist.zip to twitch
   - move to hosted test
+
+## Wymagania systemowe
+
+- Node.js 18 lub nowszy
+- npm 9 lub nowszy
+- Przeglądarka z obsługą WebGL
+
+## Rozwój projektu
+
+1. Sklonuj repozytorium
+2. Zainstaluj zależności: `npm install`
+3. Uruchom serwer deweloperski: `npm run dev`
+4. Otwórz `http://localhost:8083/panel.html` w przeglądarce
+
+## Funkcje
+
+1. Interaktywne fraktale z trybem medytacyjnym
+2. Wizualizacja aktywności mózgu
+3. Poziom magii i energii
+4. Rytm 55.5 BPM dla relaksacji
+5. Efekty świetlne i animacje
+6. Tryb Grogu z magicznymi efektami
+7. Responsywny interfejs
+8. Wsparcie dla urządzeń mobilnych
+9. Konfiguracja przez panel nadawcy
+10. Integracja z Twitch
