@@ -1,0 +1,184 @@
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes glow {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+  100% { filter: brightness(1); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes rainbow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes prism {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(180deg) brightness(1.2); }
+  100% { filter: hue-rotate(360deg) brightness(1); }
+}
+
+@keyframes moonlight {
+  0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+}
+
+@keyframes rest {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes peace {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes calm {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes gentle-wave {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+.healing-card {
+  transition: all 0.5s ease;
+  background-size: 2000px 100%;
+  animation: shimmer 20s linear infinite, rest 8s ease-in-out infinite;
+}
+
+.healing-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  animation: moonlight 4s ease-in-out infinite;
+}
+
+.healing-emoji {
+  animation: pulse 2s infinite;
+}
+
+.healing-emoji:hover {
+  animation: rainbow 3s infinite, prism 4s infinite;
+}
+
+.healing-particle {
+  animation: float 3s ease-in-out infinite;
+}
+
+.healing-glow {
+  animation: glow 2s infinite;
+}
+
+.healing-text {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.healing-level {
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+  background-size: 300% 100%;
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.healing-suggestion {
+  position: relative;
+  overflow: hidden;
+}
+
+.healing-suggestion::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.healing-affirmation {
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.moonlight-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
+  pointer-events: none;
+  animation: moonlight 8s ease-in-out infinite;
+}
+
+.prism-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(255,255,255,0.1) 0%,
+    rgba(255,255,255,0.2) 25%,
+    rgba(255,255,255,0.1) 50%,
+    rgba(255,255,255,0.2) 75%,
+    rgba(255,255,255,0.1) 100%
+  );
+  pointer-events: none;
+  animation: prism 10s linear infinite;
+}
+
+.peace-text {
+  animation: peace 4s ease-in-out infinite;
+  color: #9f7aea;
+  font-style: italic;
+  text-shadow: 0 0 5px rgba(159, 122, 234, 0.3);
+}
+
+.calm-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255,255,255,0.05) 0%,
+    rgba(255,255,255,0.1) 50%,
+    rgba(255,255,255,0.05) 100%
+  );
+  pointer-events: none;
+  animation: calm 8s ease-in-out infinite;
+}
+
+.gentle-wave {
+  animation: gentle-wave 6s ease-in-out infinite;
+} 
