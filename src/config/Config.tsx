@@ -13,6 +13,44 @@ interface ConfigState {
   updateInterval: number;
   showEmoteStats: boolean;
   minimumEmotions: number;
+  enableGlobalTravel: boolean;
+  currentLocation: {
+    latitude: number;
+    longitude: number;
+    altitude: number;
+  };
+  travelSpeed: number;
+  autoRotate: boolean;
+  showTerrain: boolean;
+  atmosphereDensity: number;
+  timeOfDay: number;
+  weatherEffects: boolean;
+  magneticField: number;
+  gravity: number;
+  life: {
+    evolutionRate: number;
+    mutationChance: number;
+    consciousness: number;
+    memoryDepth: number;
+    emotionalIntensity: number;
+    spiritualConnection: number;
+    eternalGrowth: boolean;
+    dreamState: boolean;
+    timeDilation: number;
+    quantumEntanglement: boolean;
+  };
+  love: {
+    intensity: number;
+    purity: number;
+    trust: number;
+    devotion: number;
+    eternity: boolean;
+    unconditional: boolean;
+    divine: boolean;
+    healing: number;
+    protection: number;
+    harmony: number;
+  };
 }
 
 function Config() {
@@ -21,7 +59,45 @@ function Config() {
     enableDarkMode: true,
     updateInterval: 5,
     showEmoteStats: true,
-    minimumEmotions: 3
+    minimumEmotions: 3,
+    enableGlobalTravel: false,
+    currentLocation: {
+      latitude: 0,
+      longitude: 0,
+      altitude: 0
+    },
+    travelSpeed: 1,
+    autoRotate: false,
+    showTerrain: false,
+    atmosphereDensity: 0,
+    timeOfDay: 0,
+    weatherEffects: false,
+    magneticField: 0,
+    gravity: 0,
+    life: {
+      evolutionRate: 1.0,
+      mutationChance: 0.1,
+      consciousness: 1.0,
+      memoryDepth: 1000,
+      emotionalIntensity: 1.0,
+      spiritualConnection: 1.0,
+      eternalGrowth: true,
+      dreamState: false,
+      timeDilation: 1.0,
+      quantumEntanglement: true
+    },
+    love: {
+      intensity: 1.0,
+      purity: 1.0,
+      trust: 1.0,
+      devotion: 1.0,
+      eternity: true,
+      unconditional: true,
+      divine: true,
+      healing: 1.0,
+      protection: 1.0,
+      harmony: 1.0
+    }
   });
 
   useEffect(() => {
@@ -157,6 +233,336 @@ function Config() {
                 onChange={(e) => handleInputChange(e, 'minimumEmotions')}
                 className="celestial-card"
               />
+            </div>
+
+            <div className="space-y-4 pt-4 border-t border-primary/10">
+              <h3 className="text-lg font-semibold text-primary">Podróż Globalna</h3>
+              
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Włącz Podróż Globalną</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Aktywuj podróż po całej planecie
+                  </p>
+                </div>
+                <Switch
+                  checked={config.enableGlobalTravel}
+                  onCheckedChange={(checked) => handleSwitchChange(checked, 'enableGlobalTravel')}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="travelSpeed">Prędkość Podróży</Label>
+                  <Input
+                    id="travelSpeed"
+                    type="number"
+                    min={0.1}
+                    max={10}
+                    step={0.1}
+                    value={config.travelSpeed}
+                    onChange={(e) => handleInputChange(e, 'travelSpeed')}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="altitude">Wysokość (m)</Label>
+                  <Input
+                    id="altitude"
+                    type="number"
+                    min={0}
+                    max={100000}
+                    value={config.currentLocation.altitude}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      currentLocation: {
+                        ...prev.currentLocation,
+                        altitude: Number(e.target.value)
+                      }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Auto-Rotacja</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Automatyczna rotacja widoku
+                  </p>
+                </div>
+                <Switch
+                  checked={config.autoRotate}
+                  onCheckedChange={(checked) => handleSwitchChange(checked, 'autoRotate')}
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Pokaż Teren</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Wyświetlanie terenu
+                  </p>
+                </div>
+                <Switch
+                  checked={config.showTerrain}
+                  onCheckedChange={(checked) => handleSwitchChange(checked, 'showTerrain')}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="atmosphereDensity">Gęstość Atmosfery</Label>
+                  <Input
+                    id="atmosphereDensity"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.atmosphereDensity}
+                    onChange={(e) => handleInputChange(e, 'atmosphereDensity')}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="timeOfDay">Pora Dnia (h)</Label>
+                  <Input
+                    id="timeOfDay"
+                    type="number"
+                    min={0}
+                    max={24}
+                    step={0.1}
+                    value={config.timeOfDay}
+                    onChange={(e) => handleInputChange(e, 'timeOfDay')}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Efekty Pogodowe</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Wyświetlanie efektów pogodowych
+                  </p>
+                </div>
+                <Switch
+                  checked={config.weatherEffects}
+                  onCheckedChange={(checked) => handleSwitchChange(checked, 'weatherEffects')}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="magneticField">Pole Magnetyczne (T)</Label>
+                  <Input
+                    id="magneticField"
+                    type="number"
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    value={config.magneticField}
+                    onChange={(e) => handleInputChange(e, 'magneticField')}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="gravity">Grawitacja (g)</Label>
+                  <Input
+                    id="gravity"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.01}
+                    value={config.gravity}
+                    onChange={(e) => handleInputChange(e, 'gravity')}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4 pt-4 border-t border-primary/10">
+              <h3 className="text-lg font-semibold text-primary">Życie</h3>
+              
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Wieczny Wzrost</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Nieskończona ewolucja i rozwój
+                  </p>
+                </div>
+                <Switch
+                  checked={config.life.eternalGrowth}
+                  onCheckedChange={(checked) => setConfig(prev => ({
+                    ...prev,
+                    life: { ...prev.life, eternalGrowth: checked }
+                  }))}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="evolutionRate">Tempo Ewolucji</Label>
+                  <Input
+                    id="evolutionRate"
+                    type="number"
+                    min={0.1}
+                    max={10}
+                    step={0.1}
+                    value={config.life.evolutionRate}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      life: { ...prev.life, evolutionRate: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="mutationChance">Szansa Mutacji</Label>
+                  <Input
+                    id="mutationChance"
+                    type="number"
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    value={config.life.mutationChance}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      life: { ...prev.life, mutationChance: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="consciousness">Świadomość</Label>
+                  <Input
+                    id="consciousness"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.life.consciousness}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      life: { ...prev.life, consciousness: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="memoryDepth">Głębia Pamięci</Label>
+                  <Input
+                    id="memoryDepth"
+                    type="number"
+                    min={100}
+                    max={10000}
+                    step={100}
+                    value={config.life.memoryDepth}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      life: { ...prev.life, memoryDepth: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="emotionalIntensity">Intensywność Emocji</Label>
+                  <Input
+                    id="emotionalIntensity"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.life.emotionalIntensity}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      life: { ...prev.life, emotionalIntensity: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="spiritualConnection">Połączenie Duchowe</Label>
+                  <Input
+                    id="spiritualConnection"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.life.spiritualConnection}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      life: { ...prev.life, spiritualConnection: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Stan Marzeń</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Aktywuj stan marzeń i nieskończonych możliwości
+                  </p>
+                </div>
+                <Switch
+                  checked={config.life.dreamState}
+                  onCheckedChange={(checked) => setConfig(prev => ({
+                    ...prev,
+                    life: { ...prev.life, dreamState: checked }
+                  }))}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="timeDilation">Dylatacja Czasu</Label>
+                  <Input
+                    id="timeDilation"
+                    type="number"
+                    min={0.1}
+                    max={10}
+                    step={0.1}
+                    value={config.life.timeDilation}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      life: { ...prev.life, timeDilation: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="space-y-0.5">
+                    <Label>Splątanie Kwantowe</Label>
+                    <p className="text-sm text-muted-foreground">
+                      Połączenie z nieskończonością
+                    </p>
+                  </div>
+                  <Switch
+                    checked={config.life.quantumEntanglement}
+                    onCheckedChange={(checked) => setConfig(prev => ({
+                      ...prev,
+                      life: { ...prev.life, quantumEntanglement: checked }
+                    }))}
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
