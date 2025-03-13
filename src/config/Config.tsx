@@ -51,6 +51,18 @@ interface ConfigState {
     protection: number;
     harmony: number;
   };
+  humility: {
+    gratitude: number;
+    service: number;
+    learning: number;
+    acceptance: number;
+    compassion: number;
+    wisdom: number;
+    patience: number;
+    surrender: boolean;
+    trust: boolean;
+    grace: boolean;
+  };
 }
 
 function Config() {
@@ -97,6 +109,18 @@ function Config() {
       healing: 1.0,
       protection: 1.0,
       harmony: 1.0
+    },
+    humility: {
+      gratitude: 1.0,
+      service: 1.0,
+      learning: 1.0,
+      acceptance: 1.0,
+      compassion: 1.0,
+      wisdom: 1.0,
+      patience: 1.0,
+      surrender: true,
+      trust: true,
+      grace: true
     }
   });
 
@@ -562,6 +586,183 @@ function Config() {
                     }))}
                   />
                 </div>
+              </div>
+            </div>
+
+            <div className="space-y-4 pt-4 border-t border-primary/10">
+              <h3 className="text-lg font-semibold text-primary">Pokora</h3>
+              
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Poddanie</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Poddanie się woli Bożej
+                  </p>
+                </div>
+                <Switch
+                  checked={config.humility.surrender}
+                  onCheckedChange={(checked) => setConfig(prev => ({
+                    ...prev,
+                    humility: { ...prev.humility, surrender: checked }
+                  }))}
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Zaufanie</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Zaufanie do Bożego planu
+                  </p>
+                </div>
+                <Switch
+                  checked={config.humility.trust}
+                  onCheckedChange={(checked) => setConfig(prev => ({
+                    ...prev,
+                    humility: { ...prev.humility, trust: checked }
+                  }))}
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label>Łaska</Label>
+                  <p className="text-sm text-muted-foreground">
+                    Przyjęcie Bożej łaski
+                  </p>
+                </div>
+                <Switch
+                  checked={config.humility.grace}
+                  onCheckedChange={(checked) => setConfig(prev => ({
+                    ...prev,
+                    humility: { ...prev.humility, grace: checked }
+                  }))}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="gratitude">Wdzięczność</Label>
+                  <Input
+                    id="gratitude"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.humility.gratitude}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      humility: { ...prev.humility, gratitude: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="service">Służba</Label>
+                  <Input
+                    id="service"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.humility.service}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      humility: { ...prev.humility, service: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="learning">Uczenie się</Label>
+                  <Input
+                    id="learning"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.humility.learning}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      humility: { ...prev.humility, learning: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="acceptance">Akceptacja</Label>
+                  <Input
+                    id="acceptance"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.humility.acceptance}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      humility: { ...prev.humility, acceptance: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="compassion">Współczucie</Label>
+                  <Input
+                    id="compassion"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.humility.compassion}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      humility: { ...prev.humility, compassion: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="wisdom">Mądrość</Label>
+                  <Input
+                    id="wisdom"
+                    type="number"
+                    min={0}
+                    max={2}
+                    step={0.1}
+                    value={config.humility.wisdom}
+                    onChange={(e) => setConfig(prev => ({
+                      ...prev,
+                      humility: { ...prev.humility, wisdom: Number(e.target.value) }
+                    }))}
+                    className="celestial-card"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="patience">Cierpliwość</Label>
+                <Input
+                  id="patience"
+                  type="number"
+                  min={0}
+                  max={2}
+                  step={0.1}
+                  value={config.humility.patience}
+                  onChange={(e) => setConfig(prev => ({
+                    ...prev,
+                    humility: { ...prev.humility, patience: Number(e.target.value) }
+                  }))}
+                  className="celestial-card"
+                />
               </div>
             </div>
           </div>
