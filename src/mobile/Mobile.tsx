@@ -7,7 +7,7 @@ import { Loader2 } from "lucide-react";
 import { Progress } from '@/components/ui/progress';
 
 export function Mobile() {
-  const { emotions, emotionHistory, error, setEmotions, addToHistory } = useStore();
+  const { emotions, emotionHistory, error, setEmotions } = useStore();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,12 +21,12 @@ export function Mobile() {
         neutral: Math.random()
       };
       setEmotions(newEmotions);
-      addToHistory(newEmotions.happy);
+      // addToHistory(newEmotions.happy);
       setLoading(false);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [setEmotions, addToHistory]);
+  }, [setEmotions, /*addToHistory*/]);
 
   if (!emotions) {
     return null;

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
-import { useStore } from "./store";
+import { useStore } from "./lib/store";
 import { Loader2, Sparkles, Download, Trash2 } from "lucide-react";
 import { Progress } from '@/components/ui/progress';
 import { motion } from "framer-motion";

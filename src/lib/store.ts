@@ -11,16 +11,23 @@ interface EmotionStats {
   totalEmotes: number;
   topEmotes: EmoteStats[];
 }
-
 interface Store {
-  // Stan
+  // 🟢 STAN (State)
+  emotions: {
+    happy: number;
+    sad: number;
+    angry: number;
+    surprised: number;
+    neutral: number;
+  };
   emotionHistory: EmotionRecord[];
   currentEmotions: EmotionRecord | null;
   stats: EmotionStats;
   isLoading: boolean;
   error: string | null;
 
-  // Akcje
+  // 🔵 AKCJE (Actions)
+  setEmotions: (newEmotions: Store["emotions"]) => void;
   analyzeChat: (messages: string[]) => Promise<void>;
   loadHistory: (limit?: number) => Promise<void>;
   clearHistory: () => Promise<void>;
@@ -30,6 +37,22 @@ interface Store {
 
 export const useStore = create<Store>((set, get) => ({
   // Stan początkowy
+  emotions: {
+    happy: 0,
+    sad: 0,
+    angry: 0,
+    surprised: 0,
+    neutral: 0
+  },
+
+  setEmotions: (newEmotions) => {
+    set({ emotions: newEmotions });
+  },
+  addToHistory: (record: EmotionRecord) => {
+    set((state) => ({
+      emotionHistory: [...state.emotionHistory, record], // Teraz dodajemy poprawny typ!
+    }));
+  },
   emotionHistory: [],
   currentEmotions: null,
   stats: {
