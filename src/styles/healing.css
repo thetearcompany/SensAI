@@ -68,6 +68,18 @@
   100% { transform: translateX(0); }
 }
 
+@keyframes serenity {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.02) rotate(1deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes tranquility {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .healing-card {
   transition: all 0.5s ease;
   background-size: 2000px 100%;
@@ -181,4 +193,29 @@
 
 .gentle-wave {
   animation: gentle-wave 6s ease-in-out infinite;
+}
+
+.serenity-text {
+  animation: serenity 8s ease-in-out infinite;
+  color: #805ad5;
+  font-style: italic;
+  text-shadow: 0 0 8px rgba(128, 90, 213, 0.4);
+}
+
+.tranquility-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(-45deg, 
+    rgba(255,255,255,0.03) 0%,
+    rgba(255,255,255,0.08) 25%,
+    rgba(255,255,255,0.03) 50%,
+    rgba(255,255,255,0.08) 75%,
+    rgba(255,255,255,0.03) 100%
+  );
+  background-size: 400% 400%;
+  pointer-events: none;
+  animation: tranquility 15s ease infinite;
 } 

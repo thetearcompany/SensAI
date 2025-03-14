@@ -30,6 +30,14 @@ const healingEmojis = [
   { emoji: '🌺', description: 'Boska miłość', sound: 'divine-love', vibration: [230, 115, 230] },
   { emoji: '🎭', description: 'Duchowa transformacja', sound: 'spirit-transform', vibration: [240, 120, 240] },
   { emoji: '🎪', description: 'Boska gra', sound: 'divine-play', vibration: [250, 125, 250] },
+  { emoji: '✝️', description: 'Jezus Chrystus', sound: 'jesus', vibration: [300, 150, 300] },
+  { emoji: '🙌', description: 'Uwielbienie', sound: 'praise', vibration: [280, 140, 280] },
+  { emoji: '💝', description: 'Boska łaska', sound: 'grace', vibration: [260, 130, 260] },
+  { emoji: '��', description: 'Adonai', sound: 'adonai', vibration: [400, 200, 400] },
+  { emoji: '👼', description: 'Anioły', sound: 'angels', vibration: [350, 175, 350] },
+  { emoji: '📖', description: 'Słowo Boże', sound: 'word', vibration: [330, 165, 330] },
+  { emoji: '🎵', description: 'Pieśni uwielbienia', sound: 'praise-song', vibration: [320, 160, 320] },
+  { emoji: '💫', description: 'Duch Święty', sound: 'holy-spirit', vibration: [310, 155, 310] },
 ];
 
 const healingSounds = {
@@ -76,6 +84,36 @@ const healingSuggestions = [
   'Jesteś w moim sercu',
   'Twoja transformacja jest piękna',
   'Jesteś częścią boskiego planu',
+  'Pomodlę się za Twoje spotkanie z Jezusem',
+  'Poczuj Jego obecność w swoim sercu',
+  'Otwórz się na Jego miłość',
+  'Pozwól Mu Cię prowadzić',
+  'Zaufaj Jego planowi',
+  'Poczuj Jego uzdrowienie',
+  'Jesteś w Jego ramionach',
+  'On jest Twoją drogą',
+  'Jego miłość jest wieczna',
+  'On jest Twoim zbawieniem',
+  'Poczuj obecność Adonai',
+  'Jego miłość Cię otacza',
+  'On jest Twoim opiekunem',
+  'Jego światło Cię prowadzi',
+  'Jego łaska jest nieskończona',
+  'Jego pokój Cię wypełnia',
+  'Jego mądrość Cię oświeca',
+  'Jego moc Cię umacnia',
+  'Jego miłosierdzie Cię chroni',
+  'Jego błogosławieństwo Cię otacza',
+  'Jego obecność Cię uzdrowi',
+  'Jego miłość Cię przemienia',
+  'Jego pokój Cię uspokaja',
+  'Jego radość Cię wypełnia',
+  'Jego nadzieja Cię podtrzymuje',
+  'Jego wiara Cię umacnia',
+  'Jego łaska Cię podnosi',
+  'Jego miłość Cię wywyższa',
+  'Jego światło Cię oświeca',
+  'Jego moc Cię chroni',
 ];
 
 const healingAffirmations = [
@@ -95,6 +133,36 @@ const healingAffirmations = [
   'Twoja obecność jest darem',
   'Jesteś częścią boskiej gracji',
   'Twoja miłość jest wieczna',
+  'Jezus jest Twoim drogowskazem',
+  'Jego miłość Cię uzdrowi',
+  'On jest Twoją nadzieją',
+  'Jego łaska Cię prowadzi',
+  'On jest Twoim zbawieniem',
+  'Jego światło Cię oświeca',
+  'On jest Twoją siłą',
+  'Jego pokój Cię otacza',
+  'On jest Twoją miłością',
+  'Jego obecność Cię chroni',
+  'Adonai jest Twoim pasterzem',
+  'Jego miłość jest wieczna',
+  'Jego łaska jest nieskończona',
+  'Jego pokój przekracza zrozumienie',
+  'Jego mądrość jest doskonała',
+  'Jego moc jest nieograniczona',
+  'Jego miłosierdzie trwa na wieki',
+  'Jego błogosławieństwo Cię otacza',
+  'Jego obecność Cię uzdrowi',
+  'Jego miłość Cię przemienia',
+  'Jego pokój Cię uspokaja',
+  'Jego radość Cię wypełnia',
+  'Jego nadzieja Cię podtrzymuje',
+  'Jego wiara Cię umacnia',
+  'Jego łaska Cię podnosi',
+  'Jego miłość Cię wywyższa',
+  'Jego światło Cię oświeca',
+  'Jego moc Cię chroni',
+  'Jego miłosierdzie Cię ratuje',
+  'Jego błogosławieństwo Cię wypełnia',
 ];
 
 const healingColors = [
@@ -174,6 +242,7 @@ export function HealingChart({ data, currentLevel }: HealingChartProps) {
       <div className="moonlight-effect"></div>
       <div className="prism-effect"></div>
       <div className="calm-effect"></div>
+      <div className="tranquility-effect"></div>
       
       {particles.map(particle => (
         <div
@@ -223,6 +292,15 @@ export function HealingChart({ data, currentLevel }: HealingChartProps) {
           </div>
           <div className="text-sm text-purple-500 italic gentle-wave">
             Odpocznij, Jurek. Wszystko jest dobrze.
+          </div>
+          <div className="text-sm text-purple-400 italic serenity-text">
+            Cisza jest najpiękniejszym dźwiękiem
+          </div>
+          <div className="text-sm text-purple-300 italic mt-2">
+            Jezus jest Twoją drogą, prawdą i życiem
+          </div>
+          <div className="text-sm text-purple-200 italic mt-2">
+            Adonai jest Twoim pasterzem, niczego Ci nie zabraknie
           </div>
         </div>
       </div>
